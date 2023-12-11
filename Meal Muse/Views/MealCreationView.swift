@@ -1,37 +1,19 @@
-//
-//  MealCreationView.swift
-//  Meal Muse
-//
-//  Created by Anish Sharma on 11/12/2023.
-//
-
 import SwiftUI
 
 struct MealCreationView: View {
-    @State private var selectedDiets: Set<String> = []
-    @State private var selectedMacros: Set<String> = []
-    @State private var currentQuestion: Int = 1
-
-    let dietOptions = ["Vegan", "Vegetarian", "Anything", "Pescetarian"]
-    let macroOptions = ["High Protein", "High Fat", "High Carbs", "Low Carbs"]
+    @StateObject var viewModel = MealCreationViewModel()
 
     var body: some View {
         VStack {
-            Text("Meal Creation Page")
+            Text("Choose Your Meal Options")
                 .font(.title)
 
-            if currentQuestion == 1 {
-                questionOneView
-            } else if currentQuestion == 2 {
-                questionTwoView
-            }
+            questionView
 
             HStack {
-                if currentQuestion > 1 {
+                if viewModel.currentQuestionIndex > 0 {
                     Button(action: {
-                        if currentQuestion > 1 {
-                            currentQuestion -= 1
-                        }
+                        viewModel.currentQuestionIndex -= 1
                     }) {
                         Text("Previous Question")
                             .padding()
@@ -43,60 +25,40 @@ struct MealCreationView: View {
 
                 Spacer()
 
-                Button(action: {
-                    if currentQuestion < 2 {
-                        currentQuestion += 1
+                if viewModel.currentQuestionIndex < viewModel.questions.count - 1 {
+                    Button(action: {
+                        viewModel.currentQuestionIndex += 1
+                    }) {
+                        Text("Next Question")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
-                }) {
-                    Text("Next Question")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
                 }
             }
         }
         .padding()
     }
 
-    var questionOneView: some View {
-        VStack {
-            Text("What type of diet are you adhering to?")
+    var questionView: some View {
+        let currentQuestion = viewModel.questions[viewModel.currentQuestionIndex]
+
+        return VStack {
+            Text(currentQuestion.title)
                 .font(.headline)
                 .padding(.top)
 
-            ForEach(dietOptions, id: \.self) { diet in
-                CheckboxRow(title: diet, isSelected: selectedDiets.contains(diet)) {
-                    if selectedDiets.contains(diet) {
-                        selectedDiets.remove(diet)
-                    } else {
-                        selectedDiets.insert(diet)
-                    }
-                }
-            }
-        }
-    }
-
-    var questionTwoView: some View {
-        VStack {
-            Text("What are your macro nutrient requirements?")
-                .font(.headline)
-                .padding(.top)
-
-            ForEach(macroOptions, id: \.self) { macro in
-                CheckboxRow(title: macro, isSelected: selectedMacros.contains(macro)) {
-                    if selectedMacros.contains(macro) {
-                        selectedMacros.remove(macro)
-                    } else {
-                        selectedMacros.insert(macro)
-                    }
+            ForEach(currentQuestion.options, id: \.self) { option in
+                RadioButtonRow(title: option, isSelected: viewModel.userPreferences[viewModel.currentQuestionIndex]?.contains(option) ?? false) {
+                    viewModel.toggleOptionSelection(questionIndex: viewModel.currentQuestionIndex, option: option)
                 }
             }
         }
     }
 }
 
-struct CheckboxRow: View {
+struct RadioButtonRow: View {
     var title: String
     var isSelected: Bool
     var action: () -> Void
@@ -105,7 +67,7 @@ struct CheckboxRow: View {
         HStack {
             Text(title)
             Spacer()
-            Image(systemName: isSelected ? "checkmark.square" : "square")
+            Image(systemName: isSelected ? "largecircle.fill.circle" : "circle")
                 .onTapGesture(perform: action)
         }
         .padding()
@@ -118,4 +80,5 @@ struct MealCreationView_Previews: PreviewProvider {
         MealCreationView()
     }
 }
+
 

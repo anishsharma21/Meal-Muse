@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8DB5EE5C2B272864004503AF /* MealCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5EE5B2B272864004503AF /* MealCreationView.swift */; };
+		8DB5EE612B272FB5004503AF /* DietAndMacroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5EE602B272FB5004503AF /* DietAndMacroModel.swift */; };
+		8DB5EE632B272FE2004503AF /* MealCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5EE622B272FE2004503AF /* MealCreationViewModel.swift */; };
 		8DF44F292B23577500FDD904 /* Meal_MuseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF44F282B23577500FDD904 /* Meal_MuseApp.swift */; };
 		8DF44F2B2B23577500FDD904 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF44F2A2B23577500FDD904 /* ContentView.swift */; };
 		8DF44F2D2B23577600FDD904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DF44F2C2B23577600FDD904 /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8DB5EE5B2B272864004503AF /* MealCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCreationView.swift; sourceTree = "<group>"; };
+		8DB5EE602B272FB5004503AF /* DietAndMacroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietAndMacroModel.swift; sourceTree = "<group>"; };
+		8DB5EE622B272FE2004503AF /* MealCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCreationViewModel.swift; sourceTree = "<group>"; };
 		8DF44F252B23577500FDD904 /* Meal Muse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal Muse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF44F282B23577500FDD904 /* Meal_MuseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal_MuseApp.swift; sourceTree = "<group>"; };
 		8DF44F2A2B23577500FDD904 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +38,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8DB5EE5E2B272F67004503AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8DB5EE602B272FB5004503AF /* DietAndMacroModel.swift */,
+				8DB5EE622B272FE2004503AF /* MealCreationViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8DB5EE5F2B272F6E004503AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8DB5EE5B2B272864004503AF /* MealCreationView.swift */,
+				8DF44F2A2B23577500FDD904 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8DF44F1C2B23577500FDD904 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +75,9 @@
 		8DF44F272B23577500FDD904 /* Meal Muse */ = {
 			isa = PBXGroup;
 			children = (
+				8DB5EE5F2B272F6E004503AF /* Views */,
+				8DB5EE5E2B272F67004503AF /* Models */,
 				8DF44F282B23577500FDD904 /* Meal_MuseApp.swift */,
-				8DF44F2A2B23577500FDD904 /* ContentView.swift */,
 				8DF44F2C2B23577600FDD904 /* Assets.xcassets */,
 				8DF44F2E2B23577600FDD904 /* Preview Content */,
 			);
@@ -137,7 +162,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DB5EE5C2B272864004503AF /* MealCreationView.swift in Sources */,
 				8DF44F2B2B23577500FDD904 /* ContentView.swift in Sources */,
+				8DB5EE612B272FB5004503AF /* DietAndMacroModel.swift in Sources */,
+				8DB5EE632B272FE2004503AF /* MealCreationViewModel.swift in Sources */,
 				8DF44F292B23577500FDD904 /* Meal_MuseApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
