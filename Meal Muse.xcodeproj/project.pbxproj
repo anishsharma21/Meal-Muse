@@ -10,6 +10,8 @@
 		8DB5EE5C2B272864004503AF /* MealCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5EE5B2B272864004503AF /* MealCreationView.swift */; };
 		8DB5EE612B272FB5004503AF /* DietAndMacroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5EE602B272FB5004503AF /* DietAndMacroModel.swift */; };
 		8DB5EE632B272FE2004503AF /* MealCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5EE622B272FE2004503AF /* MealCreationViewModel.swift */; };
+		8DB5EE652B274336004503AF /* GeneratedMealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5EE642B274336004503AF /* GeneratedMealsView.swift */; };
+		8DB5EE672B2743B6004503AF /* meals.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8DB5EE662B2743B6004503AF /* meals.txt */; };
 		8DF44F292B23577500FDD904 /* Meal_MuseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF44F282B23577500FDD904 /* Meal_MuseApp.swift */; };
 		8DF44F2B2B23577500FDD904 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF44F2A2B23577500FDD904 /* ContentView.swift */; };
 		8DF44F2D2B23577600FDD904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DF44F2C2B23577600FDD904 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 		8DB5EE5B2B272864004503AF /* MealCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCreationView.swift; sourceTree = "<group>"; };
 		8DB5EE602B272FB5004503AF /* DietAndMacroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietAndMacroModel.swift; sourceTree = "<group>"; };
 		8DB5EE622B272FE2004503AF /* MealCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCreationViewModel.swift; sourceTree = "<group>"; };
+		8DB5EE642B274336004503AF /* GeneratedMealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMealsView.swift; sourceTree = "<group>"; };
+		8DB5EE662B2743B6004503AF /* meals.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = meals.txt; sourceTree = "<group>"; };
 		8DF44F252B23577500FDD904 /* Meal Muse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal Muse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF44F282B23577500FDD904 /* Meal_MuseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal_MuseApp.swift; sourceTree = "<group>"; };
 		8DF44F2A2B23577500FDD904 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,7 +55,9 @@
 			isa = PBXGroup;
 			children = (
 				8DB5EE5B2B272864004503AF /* MealCreationView.swift */,
+				8DB5EE642B274336004503AF /* GeneratedMealsView.swift */,
 				8DF44F2A2B23577500FDD904 /* ContentView.swift */,
+				8DB5EE662B2743B6004503AF /* meals.txt */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DB5EE672B2743B6004503AF /* meals.txt in Resources */,
 				8DF44F302B23577600FDD904 /* Preview Assets.xcassets in Resources */,
 				8DF44F2D2B23577600FDD904 /* Assets.xcassets in Resources */,
 			);
@@ -165,6 +172,7 @@
 				8DB5EE5C2B272864004503AF /* MealCreationView.swift in Sources */,
 				8DF44F2B2B23577500FDD904 /* ContentView.swift in Sources */,
 				8DB5EE612B272FB5004503AF /* DietAndMacroModel.swift in Sources */,
+				8DB5EE652B274336004503AF /* GeneratedMealsView.swift in Sources */,
 				8DB5EE632B272FE2004503AF /* MealCreationViewModel.swift in Sources */,
 				8DF44F292B23577500FDD904 /* Meal_MuseApp.swift in Sources */,
 			);
