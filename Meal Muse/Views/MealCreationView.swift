@@ -25,6 +25,7 @@ struct MealCreationView: View {
 
                 Spacer()
 
+                // Check if it's the last question
                 if viewModel.currentQuestionIndex < viewModel.questions.count - 1 {
                     Button(action: {
                         viewModel.currentQuestionIndex += 1
@@ -32,6 +33,16 @@ struct MealCreationView: View {
                         Text("Next Question")
                             .padding()
                             .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                } else {
+                    Button(action: {
+                        // Action for generating recipes
+                    }) {
+                        Text("Generate Recipes")
+                            .padding()
+                            .background(Color.purple) // Using yellow for gold color
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
@@ -50,7 +61,7 @@ struct MealCreationView: View {
                 .padding(.top)
 
             ForEach(currentQuestion.options, id: \.self) { option in
-                RadioButtonRow(title: option, isSelected: viewModel.userPreferences[viewModel.currentQuestionIndex]?.contains(option) ?? false) {
+                RadioButtonRow(title: option, isSelected: viewModel.userPreferences[viewModel.currentQuestionIndex] == option) {
                     viewModel.toggleOptionSelection(questionIndex: viewModel.currentQuestionIndex, option: option)
                 }
             }
@@ -80,5 +91,3 @@ struct MealCreationView_Previews: PreviewProvider {
         MealCreationView()
     }
 }
-
-

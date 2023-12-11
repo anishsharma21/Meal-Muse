@@ -3,7 +3,7 @@ import Foundation
 import SwiftUI
 
 class MealCreationViewModel: ObservableObject {
-    @Published var userPreferences: [Int: Set<String>] = [:]
+    @Published var userPreferences: [Int: String?] = [:]
     @Published var currentQuestionIndex: Int = 0
 
     let questions: [Question] = [
@@ -16,13 +16,11 @@ class MealCreationViewModel: ObservableObject {
     ]
 
     func toggleOptionSelection(questionIndex: Int, option: String) {
-        var selections = userPreferences[questionIndex] ?? Set<String>()
-        if selections.contains(option) {
-            selections.remove(option)
+        if let currentSelection = userPreferences[questionIndex], currentSelection == option {
+            userPreferences[questionIndex] = nil // Deselect if the same option is selected again
         } else {
-            selections.insert(option)
+            userPreferences[questionIndex] = option // Select the new option
         }
-        userPreferences[questionIndex] = selections
     }
 }
 
