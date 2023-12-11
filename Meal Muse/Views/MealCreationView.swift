@@ -40,7 +40,7 @@ struct MealCreationView: View {
                     Button(action: {
                         // Action for generating recipes
                     }) {
-                        Text("Generate Recipes")
+                        Text("Find Recipes")
                             .padding()
                             .background(Color.purple) // Using yellow for gold color
                             .foregroundColor(.white)
