@@ -1,0 +1,9 @@
+[
+    {
+        "id": "test-uuid",
+        "name": "Test Meals",
+        "calories": 1000003,
+        "ingredients": ["Test Ingredient", "Pepper"],
+        "cookingTime": 10
+    }
+]

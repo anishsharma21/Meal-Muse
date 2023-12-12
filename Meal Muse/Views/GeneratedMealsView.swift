@@ -1,37 +1,40 @@
-//
-//  GeneratedMealsView.swift
-//  Meal Muse
-//
-//  Created by Anish Sharma on 12/12/2023.
-//
-
-import Foundation
-
 import SwiftUI
 
 struct GeneratedMealsView: View {
-    @State private var meals = [String]()
-
+    @State private var meals = [Meal]()
+    
     var body: some View {
         NavigationView {
-            List(meals, id: \.self) { meal in
-                Text(meal)
+            List(meals) { meal in
+                VStack(alignment: .leading) {
+                    Text(meal.name)
+                        .font(.headline)
+                    Text("Calories: \(meal.calories)")
+                    Text("Cooking Time: \(meal.cookingTime) minutes")
+                    Text("Ingredients: \(meal.ingredients.joined(separator: ", "))")
+                }
             }
             .navigationBarTitle("Meals")
             .onAppear(perform: loadMeals)
         }
     }
-
+    
     func loadMeals() {
-        if let fileURL = Bundle.main.url(forResource: "meals", withExtension: "txt") {
-            if let fileContents = try? String(contentsOf: fileURL) {
-                meals = fileContents.components(separatedBy: "\n").filter { !$0.isEmpty }
-            }
+        guard let url = Bundle.main.url(forResource: "meals", withExtension: "json") else {
+            print("meals.json file not found")
+            return
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            meals = try JSONDecoder().decode([Meal].self, from: data)
+        } catch {
+            print("Error decoding JSON: \(error)")
         }
     }
 }
 
-struct MealListView_Previews: PreviewProvider {
+struct GeneratedMealsView_Previews: PreviewProvider {
     static var previews: some View {
         GeneratedMealsView()
     }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MealCreationView: View {
     @StateObject var viewModel = MealCreationViewModel()
+    @State private var showGeneratedMeals = false
 
     var body: some View {
         VStack {
@@ -24,7 +25,11 @@ struct MealCreationView: View {
                 }
 
                 Spacer()
-
+                
+                NavigationLink(destination: GeneratedMealsView(), isActive: $showGeneratedMeals) {
+                    EmptyView()
+                }
+                
                 // Check if it's the last question
                 if viewModel.currentQuestionIndex < viewModel.questions.count - 1 {
                     Button(action: {
@@ -38,7 +43,7 @@ struct MealCreationView: View {
                     }
                 } else {
                     Button(action: {
-                        // Action for generating recipes
+                        self.showGeneratedMeals = true
                     }) {
                         Text("Find Recipes")
                             .padding()
